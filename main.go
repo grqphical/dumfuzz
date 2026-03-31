@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+
+	"github.com/grqphical/dumfuzz/internal/cli"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	var outputType cli.OutputType = cli.DefaultOutputType
+	flag.Var(&outputType, "output-type", "Output format of data (csv, json, sql)")
+
+	flag.Parse()
+
+	fmt.Printf("output type: %s\n", outputType)
 }
