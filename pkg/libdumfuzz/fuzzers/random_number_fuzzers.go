@@ -10,7 +10,7 @@ const RandomIntegerFuzzerName string = "randint"
 type RandomIntegerFuzzer struct{}
 
 func (r RandomIntegerFuzzer) GenerateData() string {
-	return strconv.Itoa(rand.Int())
+	return strconv.Itoa(rand.IntN(128 * 1024))
 }
 
 const RandomFloatFuzzerName string = "randfloat"

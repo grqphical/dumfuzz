@@ -29,8 +29,6 @@ func main() {
 		return
 	}
 
-	fmt.Printf("output type: %s, params: %+v, count: %d\n", outputType, params, *count)
-
 	var generatedData map[string][]string = make(map[string][]string)
 
 	for paramName, paramType := range params {
