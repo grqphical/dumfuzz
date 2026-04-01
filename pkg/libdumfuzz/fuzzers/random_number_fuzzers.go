@@ -3,6 +3,7 @@ package fuzzers
 import (
 	"math/rand/v2"
 	"strconv"
+	"strings"
 )
 
 const RandomIntegerFuzzerName string = "randint"
@@ -27,4 +28,21 @@ type RandomBigIntegerFuzzer struct{}
 
 func (r RandomBigIntegerFuzzer) GenerateData() string {
 	return strconv.Itoa(rand.Int())
+}
+
+const PhoneNumberFuzzerName string = "phone"
+
+type PhoneNumberFuzzer struct{}
+
+func (r PhoneNumberFuzzer) GenerateData() string {
+	var output strings.Builder
+	output.WriteByte('+')
+	output.Write([]byte(strconv.Itoa(1 + rand.IntN(999)))) // generate country code
+
+	// generate subscriber number (rest of phone number)
+	for range 10 {
+		output.WriteByte(uint8(48 + rand.IntN(57-48+1)))
+	}
+
+	return output.String()
 }

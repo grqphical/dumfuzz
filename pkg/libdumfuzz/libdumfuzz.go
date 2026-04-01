@@ -36,4 +36,5 @@ func init() {
 	Fuzzers[fuzzers.RandomBigIntegerFuzzerName] = fuzzers.RandomBigIntegerFuzzer{}
 	Fuzzers[fuzzers.RandomFloatFuzzerName] = fuzzers.RandomFloatFuzzer{}
 	Fuzzers[fuzzers.RandomStringFuzzerName] = fuzzers.RandomStringFuzzer{}
+	Fuzzers[fuzzers.PhoneNumberFuzzerName] = fuzzers.PhoneNumberFuzzer{}
 }

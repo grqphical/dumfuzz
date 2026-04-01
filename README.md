@@ -17,6 +17,7 @@ dumfuzz -n <count> -param name=type -output-format <format>
 - `randfloat` A random real number between 0 and 1
 - `randbigint` A large random integer
 - `randstr` A random 32 character string consisting of letters and numbers
+- `phone` A fuzzer that generates phone numbers that have a 1-3 digit country code and a 10 digit subscriber number
 
 ## License
 dumfuzz is licensed under the Apache 2.0 license
