@@ -16,6 +16,7 @@ dumfuzz -n <count> -param name=type -output-format <format>
 - `randint` A random integer between 0 and 128k
 - `randfloat` A random real number between 0 and 1
 - `randbigint` A large random integer
+- `randstr` A random 32 character string consisting of letters and numbers
 
 ## License
 dumfuzz is licensed under the Apache 2.0 license
