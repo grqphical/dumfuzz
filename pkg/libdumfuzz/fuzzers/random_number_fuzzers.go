@@ -20,3 +20,11 @@ type RandomFloatFuzzer struct{}
 func (r RandomFloatFuzzer) GenerateData() string {
 	return strconv.FormatFloat(rand.Float64(), 'f', 4, 64)
 }
+
+const RandomBigIntegerFuzzerName string = "randbigint"
+
+type RandomBigIntegerFuzzer struct{}
+
+func (r RandomBigIntegerFuzzer) GenerateData() string {
+	return strconv.Itoa(rand.Int())
+}

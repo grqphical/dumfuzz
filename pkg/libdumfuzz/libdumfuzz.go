@@ -33,5 +33,6 @@ func RunFuzzer(fuzzer DummyDataFuzzer, n int) []string {
 
 func init() {
 	Fuzzers[fuzzers.RandomIntegerFuzzerName] = fuzzers.RandomIntegerFuzzer{}
+	Fuzzers[fuzzers.RandomBigIntegerFuzzerName] = fuzzers.RandomBigIntegerFuzzer{}
 	Fuzzers[fuzzers.RandomFloatFuzzerName] = fuzzers.RandomFloatFuzzer{}
 }
