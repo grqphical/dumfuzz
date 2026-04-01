@@ -12,5 +12,10 @@ dumfuzz -n <count> -param name=type -output-format <format>
 
 `-output-format` defines how the data should be output, currently the only output supported is CSV
 
+## Currently Supported Fuzzers (Data types)
+- `randint` A random integer between 0 and 128k
+- `randfloat` A random real number between 0 and 1
+- `randbigint` A large random integer
+
 ## License
 dumfuzz is licensed under the Apache 2.0 license
