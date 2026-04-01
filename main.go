@@ -3,13 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 
 	"github.com/grqphical/dumfuzz/internal/cli"
+	"github.com/grqphical/dumfuzz/internal/formats"
 	"github.com/grqphical/dumfuzz/pkg/libdumfuzz"
 )
 
 func main() {
-	var outputType cli.OutputType = cli.DefaultOutputType
+	var outputType formats.OutputFormat = formats.DefaultOutputFormat
 	flag.Var(&outputType, "output-type", "Output format of data (csv, json, sql)")
 
 	var params cli.Params
@@ -28,4 +30,16 @@ func main() {
 	}
 
 	fmt.Printf("output type: %s, params: %+v, count: %d\n", outputType, params, *count)
+
+	var generatedData map[string][]string = make(map[string][]string)
+
+	for paramName, paramType := range params {
+		data := libdumfuzz.RunFuzzer(libdumfuzz.GetBundledFuzzer(paramType), *count)
+		generatedData[paramName] = data
+	}
+
+	switch outputType {
+	case formats.OutputFormatCSV:
+		formats.FormatCSV(generatedData, os.Stdout)
+	}
 }
